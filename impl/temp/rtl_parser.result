@@ -1,75 +1,75 @@
 [
  {
-  "InstFile" : "E:/workspace/FPGA/Erik/src/gowin_rpll/gowin_rpll.v",
+  "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/gowin_rpll/gowin_rpll.v",
   "InstLine" : 10,
   "InstName" : "CLK_50M_RPLL",
-  "ModuleFile" : "E:/workspace/FPGA/Erik/src/gowin_rpll/gowin_rpll.v",
+  "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/gowin_rpll/gowin_rpll.v",
   "ModuleLine" : 10,
   "ModuleName" : "CLK_50M_RPLL"
  },
  {
-  "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+  "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
   "InstLine" : 1,
   "InstName" : "top_module",
-  "ModuleFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+  "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
   "ModuleLine" : 1,
   "ModuleName" : "top_module",
   "SubInsts" : [
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 104,
     "InstName" : "u_uart_master",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/uart_master/uart_master.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/uart_master/uart_master.v",
     "ModuleLine" : 9,
     "ModuleName" : "UART_MASTER_Top"
    },
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 22,
     "InstName" : "u_internal_clock_50m",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "ModuleLine" : 147,
     "ModuleName" : "internal_clock_50m"
    },
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 48,
     "InstName" : "u_adc_scanner",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/adc_scanner.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/adc_scanner.v",
     "ModuleLine" : 1,
     "ModuleName" : "adc_scanner",
     "SubInsts" : [
      {
-      "InstFile" : "E:/workspace/FPGA/Erik/src/adc_scanner.v",
+      "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/adc_scanner.v",
       "InstLine" : 45,
       "InstName" : "u_ads7953_spi",
-      "ModuleFile" : "E:/workspace/FPGA/Erik/src/spi.v",
+      "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/spi.v",
       "ModuleLine" : 1,
       "ModuleName" : "ads7953_spi"
      }
     ]
    },
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 65,
     "InstName" : "u_rt_algorithm",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/rt_algorithm.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/rt_algorithm.v",
     "ModuleLine" : 1,
     "ModuleName" : "rt_algorithm"
    },
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 90,
     "InstName" : "u_uart_sender",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "ModuleLine" : 198,
     "ModuleName" : "uart_master_byte_sender"
    },
    {
-    "InstFile" : "E:/workspace/FPGA/Erik/src/top_module.v",
+    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
     "InstLine" : 132,
     "InstName" : "u_led_stream",
-    "ModuleFile" : "E:/workspace/FPGA/Erik/src/led_stream.v",
+    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/led_stream.v",
     "ModuleLine" : 1,
     "ModuleName" : "led_stream"
    }
