@@ -1,0 +1,146 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\spi.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\adc_scanner.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\rt_algorithm.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\rgb_breathing.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\top_module.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\spi_master\spi_master.v'
+Analyzing Verilog file 'E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v'
+Compiling module 'top_module'("E:\workspace\FPGA\Erik\.\src\top_module.v":1)
+Compiling module 'internal_clock_50m'("E:\workspace\FPGA\Erik\.\src\top_module.v":147)
+Compiling module 'adc_scanner'("E:\workspace\FPGA\Erik\.\src\adc_scanner.v":1)
+Compiling module 'ads7953_spi'("E:\workspace\FPGA\Erik\.\src\spi.v":1)
+Compiling module 'rt_algorithm'("E:\workspace\FPGA\Erik\.\src\rt_algorithm.v":1)
+Compiling module 'uart_master_byte_sender'("E:\workspace\FPGA\Erik\.\src\top_module.v":200)
+Compiling module '**'("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+Compiling module 'rgb_breathing'("E:\workspace\FPGA\Erik\.\src\rgb_breathing.v":1)
+NOTE  (EX0101) : Current top module is "top_module"
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/TxRDYn_d_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/RxRDYn_d_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n367_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n378_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n173_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n192_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/INTR_d_s"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/OE_re_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/PE_re_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/FE_re_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/BI_re_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s6"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n280_s24"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_0_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_1_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_2_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_3_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_4_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_5_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_7_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n257_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n258_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s7"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s8"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s9"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n280_s25"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n280_s26"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_0_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_1_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_2_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_2_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_3_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_4_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_5_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n257_s5"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s10"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s11"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n280_s27"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_0_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_1_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_1_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_2_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_3_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s12"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/n165_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/reg_data_out_7_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/IER_3_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/IER_2_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/IER_1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/IER_0_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/MCR_1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/MCR_0_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_7_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_5_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_4_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_3_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_2_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/rdata_0_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/LsrRDn_re_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/IirRDn_re_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/OE_re_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/PE_re_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/FE_re_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/BI_re_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_0_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_2_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/Int_State_1_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/u_uart_sram/DDIS_d_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n34_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n33_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n31_s2"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n26_s8"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n26_s10"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n26_s11"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/n26_s12"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_5_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_4_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/DSRn1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/DCDn1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/RIn1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_7_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/CTSn1_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_3_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_2_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_1_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/MSReg_0_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/DTRn_d_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Modem/RTSn_d_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n261_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n284_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n198_s5"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/RxPrtyErr_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/ParityErr_r_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n284_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n198_s6"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n198_s7"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n263_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/BreakInt_r_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/FrameErr_r_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/OverrunErr_r_s4"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/RbrDataRDY_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/RxIdle1_r_s0"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/RxPrtyErr_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/OverrunErr_r_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/ParityErr_r_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/FrameErr_r_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/BreakInt_r_s1"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+WARN  (NL0001) : Sweep user defined dangling instance "u_uart_master/i4/U_Rxcver/n82_s3"("E:\workspace\FPGA\Erik\.\src\uart_master\uart_master.v":1476)
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "E:\workspace\FPGA\Erik\.\impl\temp\Erik_syn.v" completed
+[100%] Generate report file "E:\workspace\FPGA\Erik\.\impl\temp\Erik_syn_syn.rpt.html" completed
+GowinSynthesis finish

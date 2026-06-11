@@ -1,0 +1,45 @@
+{
+ "Device" : "GW1NR-9C",
+ "Files" : [
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/adc_scanner.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/led_stream.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/rt_algorithm.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/spi.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/spi_master/spi_master.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/top_module.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "E:/workspace/FPGA/Erik/src/uart_master/uart_master.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "E:/workspace/FPGA/Erik/impl/temp/rtl_parser.result",
+ "Top" : "top_module",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

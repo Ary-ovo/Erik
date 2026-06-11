@@ -1,0 +1,32 @@
+Reading netlist file: "E:\workspace\FPGA\Erik\impl\gwsynthesis\Erik.vg"
+Parsing netlist file "E:\workspace\FPGA\Erik\impl\gwsynthesis\Erik.vg" completed
+Processing netlist completed
+Reading constraint file: "E:\workspace\FPGA\Erik\src\1.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+WARN  (TA1132) :  'u_uart_master/i4/rxclk_Z' was determined to be a clock but was not created.
+WARN  (TA1117) : Can't calculate clocks' relationship between: "u_uart_master/i4/rxclk_Z" and "clk_50m"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "clk_50m" and "u_uart_master/i4/rxclk_Z"
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "E:\workspace\FPGA\Erik\impl\pnr\Erik.power.html" completed
+Generate file "E:\workspace\FPGA\Erik\impl\pnr\Erik.pin.html" completed
+Generate file "E:\workspace\FPGA\Erik\impl\pnr\Erik.rpt.html" completed
+Generate file "E:\workspace\FPGA\Erik\impl\pnr\Erik.rpt.txt" completed
+Generate file "E:\workspace\FPGA\Erik\impl\pnr\Erik.tr.html" completed
+Thu Jun 11 00:26:12 2026
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top_module" Register="183" Alu="23" Lut="194" Bsram="2" T_Register="573(183)" T_Alu="38(23)" T_Lut="628(194)" T_Bsram="2(2)">
+ <SubModule name="u_internal_clock_50m"/>
+ <SubModule name="u_adc_scanner" Register="54" Lut="63" T_Register="120(54)" T_Lut="135(63)">
+  <SubModule name="u_ads7953_spi" Register="66" Lut="72" T_Register="66(66)" T_Lut="72(72)"/>
+ </SubModule>
+ <SubModule name="u_rt_algorithm" Register="215" Alu="15" Lut="200" T_Register="215(215)" T_Alu="15(15)" T_Lut="200(200)"/>
+ <SubModule name="u_uart_sender" Register="25" Lut="29" T_Register="25(25)" T_Lut="29(29)"/>
+ <SubModule name="u_led_flow" Register="30" Lut="70" T_Register="30(30)" T_Lut="70(70)"/>
+</Module>
