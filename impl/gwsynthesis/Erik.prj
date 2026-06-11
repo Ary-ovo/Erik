@@ -4,20 +4,19 @@
     <Version>beta</Version>
     <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
     <FileList>
-        <File path="E:\workspace\FPGA\Erik\src\adc_scanner.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\led_stream.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\rt_algorithm.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\spi.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\spi_master\spi_master.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\top_module.v" type="verilog"/>
-        <File path="E:\workspace\FPGA\Erik\src\uart_master\uart_master.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\adc_scanner.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\led_stream.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\rt_algorithm.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\spi.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\top_module.v" type="verilog"/>
+        <File path="E:\Display_on_desktop\Now_project\Erik\src\uart_master\uart_master.v" type="verilog"/>
     </FileList>
     <OptionList>
         <Option type="disable_insert_pad" value="0"/>
         <Option type="global_freq" value="50.000"/>
         <Option type="looplimit" value="2000"/>
-        <Option type="output_file" value="E:\workspace\FPGA\Erik\impl\gwsynthesis\Erik.vg"/>
+        <Option type="output_file" value="E:\Display_on_desktop\Now_project\Erik\impl\gwsynthesis\Erik.vg"/>
         <Option type="print_all_synthesis_warning" value="0"/>
         <Option type="ram_rw_check" value="0"/>
         <Option type="top_module" value="top_module"/>

@@ -22,10 +22,6 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "E:/Display_on_desktop/Now_project/Erik/src/spi_master/spi_master.v",
-   "Type" : "verilog"
-  },
-  {
    "Path" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
    "Type" : "verilog"
   },

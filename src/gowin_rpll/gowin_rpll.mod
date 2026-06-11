@@ -5,19 +5,19 @@
 -part_number GW1NR-LV9QN88PC6/I5
 
 
--mod_name CLK_50M_RPLL
+-mod_name Gowin_rPLL
 -file_name gowin_rpll
--path E:/workspace/FPGA/Erik/src/gowin_rpll/
+-path E:/Display_on_desktop/Now_project/Erik/src/gowin_rpll/
 -type PLL
 -rPll true
 -file_type vlg
 -dev_type GW1NR-9C
 -dyn_idiv_sel false
--idiv_sel 7
+-idiv_sel 1
 -dyn_fbdiv_sel false
--fbdiv_sel 13
+-fbdiv_sel 1
 -dyn_odiv_sel false
--odiv_sel 8
+-odiv_sel 16
 -dyn_da_en true
 -rst_sig false
 -rst_sig_p false

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="top_module" Register="183" Alu="23" Lut="194" Bsram="2" T_Register="572(183)" T_Alu="38(23)" T_Lut="599(194)" T_Bsram="2(2)">
- <SubModule name="u_internal_clock_50m"/>
- <SubModule name="u_adc_scanner" Register="54" Lut="60" T_Register="120(54)" T_Lut="131(60)">
+<Module name="top_module" Register="182" Alu="23" Lut="196" Bsram="2" T_Register="462(182)" T_Alu="30(23)" T_Lut="861(196)" T_MULT18X18="1(0)" T_Bsram="2(2)" T_Ssram="3(0)">
+ <SubModule name="u_adc_scanner" Register="90" Lut="110" T_Register="156(90)" T_Lut="181(110)">
   <SubModule name="u_ads7953_spi" Register="66" Lut="71" T_Register="66(66)" T_Lut="71(71)"/>
  </SubModule>
- <SubModule name="u_rt_algorithm" Register="215" Alu="15" Lut="205" T_Register="215(215)" T_Alu="15(15)" T_Lut="205(205)"/>
- <SubModule name="u_uart_sender" Register="25" Lut="22" T_Register="25(25)" T_Lut="22(22)"/>
- <SubModule name="u_led_stream" Register="29" Lut="47" T_Register="29(29)" T_Lut="47(47)"/>
+ <SubModule name="u_rt_algorithm" Register="74" Alu="7" Lut="422" MULT18X18="1" Ssram="3" T_Register="74(74)" T_Alu="7(7)" T_Lut="422(422)" T_MULT18X18="1(1)" T_Ssram="3(3)"/>
+ <SubModule name="u_uart_sender" Register="22" Lut="22" T_Register="22(22)" T_Lut="22(22)"/>
+ <SubModule name="u_led_stream" Register="28" Lut="40" T_Register="28(28)" T_Lut="40(40)"/>
 </Module>

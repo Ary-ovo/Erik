@@ -17,21 +17,16 @@ module top_module (
     output wire led5
 );
 
-    wire clk_50m;
-    wire clk_locked;
-    internal_clock_50m u_internal_clock_50m (
-        .clk_27m(sys_clk),
-        .clk    (clk_50m),
-        .locked (clk_locked)
-    );
+    localparam integer CLK_FREQ_HZ = 27000000;
+    localparam integer ADC_VREF_MV = 3400;
+    localparam [0:0]   ADC_RANGE_2X = 1'b0;
+    localparam integer ADC_FULL_SCALE_MV = ADC_RANGE_2X ? (ADC_VREF_MV * 2) : ADC_VREF_MV;
 
     reg [15:0] reset_cnt = 16'd0;
-    wire rst_n = clk_locked && (&reset_cnt);
+    wire rst_n = &reset_cnt;
 
-    always @(posedge clk_50m) begin
-        if (!clk_locked) begin
-            reset_cnt <= 16'd0;
-        end else if (!rst_n) begin
+    always @(posedge sys_clk) begin
+        if (!rst_n) begin
             reset_cnt <= reset_cnt + 1'b1;
         end
     end
@@ -40,13 +35,16 @@ module top_module (
     wire [11:0] sample_data;
     wire        sample_valid;
     wire        sweep_done;
+    wire [15:0] adc_last_rx_word;
+    wire [15:0] adc_channel_seen;
 
     adc_scanner #(
-        .CLK_FREQ_HZ      (50000000),
-        .FRAME_RATE_HZ    (200),
-        .SCLK_HALF_PERIOD (5)
+        .CLK_FREQ_HZ      (CLK_FREQ_HZ),
+        .FRAME_RATE_HZ    (20),
+        .SCLK_HALF_PERIOD (5),
+        .RANGE_2X         (ADC_RANGE_2X)
     ) u_adc_scanner (
-        .clk            (clk_50m),
+        .clk            (sys_clk),
         .rst_n          (rst_n),
         .adc_miso       (adc_miso),
         .adc_cs_n       (adc_cs_n),
@@ -55,20 +53,26 @@ module top_module (
         .sample_channel (sample_channel),
         .sample_data    (sample_data),
         .sample_valid   (sample_valid),
-        .sweep_done     (sweep_done)
+        .sweep_done     (sweep_done),
+        .last_rx_word   (adc_last_rx_word),
+        .channel_seen   (adc_channel_seen)
     );
 
     wire [7:0] packet_tx_data;
     wire       packet_tx_valid;
     wire       packet_tx_accept;
 
-    rt_algorithm u_rt_algorithm (
-        .clk            (clk_50m),
+    rt_algorithm #(
+        .ADC_FULL_SCALE_MV (ADC_FULL_SCALE_MV)
+    ) u_rt_algorithm (
+        .clk            (sys_clk),
         .rst_n          (rst_n),
         .sample_channel (sample_channel),
         .sample_data    (sample_data),
         .sample_valid   (sample_valid),
         .sweep_done     (sweep_done),
+        .last_rx_word   (adc_last_rx_word),
+        .channel_seen   (adc_channel_seen),
         .tx_accept      (packet_tx_accept),
         .tx_data        (packet_tx_data),
         .tx_valid       (packet_tx_valid)
@@ -88,21 +92,22 @@ module top_module (
     wire        uart_rts_n;
 
     uart_master_byte_sender u_uart_sender (
-        .clk        (clk_50m),
-        .rst_n      (rst_n),
-        .tx_data    (packet_tx_data),
-        .tx_valid   (packet_tx_valid),
-        .tx_accept  (packet_tx_accept),
-        .uart_rdata (uart_ip_rdata),
-        .uart_wr_en (uart_ip_wr_en),
-        .uart_waddr (uart_ip_waddr),
-        .uart_wdata (uart_ip_wdata),
-        .uart_rd_en (uart_ip_rd_en),
-        .uart_raddr (uart_ip_raddr)
+        .clk             (sys_clk),
+        .rst_n           (rst_n),
+        .tx_data         (packet_tx_data),
+        .tx_valid        (packet_tx_valid),
+        .tx_accept       (packet_tx_accept),
+        .uart_rdata      (uart_ip_rdata),
+        .uart_tx_ready_n (uart_tx_ready_n),
+        .uart_wr_en      (uart_ip_wr_en),
+        .uart_waddr      (uart_ip_waddr),
+        .uart_wdata      (uart_ip_wdata),
+        .uart_rd_en      (uart_ip_rd_en),
+        .uart_raddr      (uart_ip_raddr)
     );
 
     UART_MASTER_Top u_uart_master (
-        .I_CLK    (clk_50m),
+        .I_CLK    (sys_clk),
         .I_RESETN (rst_n),
         .I_TX_EN  (uart_ip_wr_en),
         .I_WADDR  (uart_ip_waddr),
@@ -119,7 +124,7 @@ module top_module (
         .DCDn     (1'b0),
         .CTSn     (1'b0),
         .DSRn     (1'b0),
-        .RIn      (1'b0),
+        .RIn      (1'b1),
         .DTRn     (uart_dtr_n),
         .RTSn     (uart_rts_n)
     );
@@ -127,10 +132,10 @@ module top_module (
     wire [5:0] led_bus;
 
     led_stream #(
-        .CLK_FREQ_HZ (50000000),
+        .CLK_FREQ_HZ (CLK_FREQ_HZ),
         .STEP_MS     (120)
     ) u_led_stream (
-        .clk   (clk_50m),
+        .clk   (sys_clk),
         .rst_n (rst_n),
         .led   (led_bus)
     );
@@ -144,57 +149,6 @@ module top_module (
 
 endmodule
 
-module internal_clock_50m (
-    input  wire clk_27m,
-    output wire clk,
-    output wire locked
-);
-    wire clkoutp_unused;
-    wire clkoutd_unused;
-    wire clkoutd3_unused;
-
-    rPLL u_pll (
-        .CLKOUT  (clk),
-        .CLKOUTP (clkoutp_unused),
-        .CLKOUTD (clkoutd_unused),
-        .CLKOUTD3(clkoutd3_unused),
-        .LOCK    (locked),
-        .CLKIN   (clk_27m),
-        .CLKFB   (1'b0),
-        .FBDSEL  (6'b000000),
-        .IDSEL   (6'b000000),
-        .ODSEL   (6'b000000),
-        .DUTYDA  (4'b0000),
-        .PSDA    (4'b0000),
-        .FDLY    (4'b0000),
-        .RESET   (1'b0),
-        .RESET_P (1'b0)
-    );
-
-    defparam u_pll.FCLKIN = "27";
-    defparam u_pll.DYN_IDIV_SEL = "false";
-    defparam u_pll.IDIV_SEL = 6;
-    defparam u_pll.DYN_FBDIV_SEL = "false";
-    defparam u_pll.FBDIV_SEL = 12;
-    defparam u_pll.DYN_ODIV_SEL = "false";
-    defparam u_pll.ODIV_SEL = 8;
-    defparam u_pll.PSDA_SEL = "0000";
-    defparam u_pll.DYN_DA_EN = "false";
-    defparam u_pll.DUTYDA_SEL = "1000";
-    defparam u_pll.CLKOUT_FT_DIR = 1'b1;
-    defparam u_pll.CLKOUTP_FT_DIR = 1'b1;
-    defparam u_pll.CLKOUT_DLY_STEP = 0;
-    defparam u_pll.CLKOUTP_DLY_STEP = 0;
-    defparam u_pll.CLKFB_SEL = "internal";
-    defparam u_pll.CLKOUT_BYPASS = "false";
-    defparam u_pll.CLKOUTP_BYPASS = "false";
-    defparam u_pll.CLKOUTD_BYPASS = "false";
-    defparam u_pll.DYN_SDIV_SEL = 2;
-    defparam u_pll.CLKOUTD_SRC = "CLKOUT";
-    defparam u_pll.CLKOUTD3_SRC = "CLKOUT";
-    defparam u_pll.DEVICE = "GW1NR-9C";
-endmodule
-
 module uart_master_byte_sender (
     input  wire       clk,
     input  wire       rst_n,
@@ -202,6 +156,7 @@ module uart_master_byte_sender (
     input  wire       tx_valid,
     output reg        tx_accept,
     input  wire [7:0] uart_rdata,
+    input  wire       uart_tx_ready_n,
     output reg        uart_wr_en,
     output reg  [2:0] uart_waddr,
     output reg  [7:0] uart_wdata,
@@ -209,44 +164,49 @@ module uart_master_byte_sender (
     output reg  [2:0] uart_raddr
 );
 
-    localparam ST_INIT_LOAD  = 4'd0;
-    localparam ST_INIT_WRITE = 4'd1;
-    localparam ST_IDLE       = 4'd2;
-    localparam ST_RD_SETUP   = 4'd3;
-    localparam ST_RD_PULSE   = 4'd4;
-    localparam ST_RD_WAIT    = 4'd5;
-    localparam ST_RD_CHECK   = 4'd6;
-    localparam ST_LOAD_BYTE  = 4'd7;
-    localparam ST_WRITE_BYTE = 4'd8;
+    localparam [2:0] REG_RBR_THR = 3'd0;
+    localparam [2:0] REG_LCR     = 3'd3;
+    localparam [2:0] REG_LSR     = 3'd5;
+
+    localparam [3:0] ST_INIT_WRITE = 4'd0;
+    localparam [3:0] ST_INIT_GAP   = 4'd1;
+    localparam [3:0] ST_IDLE       = 4'd2;
+    localparam [3:0] ST_RD_SETUP   = 4'd3;
+    localparam [3:0] ST_RD_PULSE   = 4'd4;
+    localparam [3:0] ST_RD_WAIT    = 4'd5;
+    localparam [3:0] ST_RD_CHECK   = 4'd6;
+    localparam [3:0] ST_LOAD_BYTE  = 4'd7;
+    localparam [3:0] ST_WRITE_BYTE = 4'd8;
+    localparam [3:0] ST_WRITE_GAP  = 4'd9;
 
     reg [3:0] state;
     reg [7:0] byte_latch;
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            state      <= ST_INIT_LOAD;
+            state <= ST_INIT_WRITE;
             byte_latch <= 8'd0;
-            tx_accept  <= 1'b0;
+            tx_accept <= 1'b0;
             uart_wr_en <= 1'b0;
-            uart_waddr <= 3'd0;
-            uart_wdata <= 8'd0;
+            uart_waddr <= REG_LCR;
+            uart_wdata <= 8'h03;
             uart_rd_en <= 1'b0;
-            uart_raddr <= 3'd0;
+            uart_raddr <= REG_LSR;
         end else begin
-            tx_accept  <= 1'b0;
+            tx_accept <= 1'b0;
             uart_wr_en <= 1'b0;
             uart_rd_en <= 1'b0;
 
             case (state)
-            ST_INIT_LOAD: begin
-                uart_waddr <= 3'd3;
+            ST_INIT_WRITE: begin
+                uart_waddr <= REG_LCR;
                 uart_wdata <= 8'h03;
-                state      <= ST_INIT_WRITE;
+                uart_wr_en <= 1'b1;
+                state <= ST_INIT_GAP;
             end
 
-            ST_INIT_WRITE: begin
-                uart_wr_en <= 1'b1;
-                state      <= ST_IDLE;
+            ST_INIT_GAP: begin
+                state <= ST_IDLE;
             end
 
             ST_IDLE: begin
@@ -256,13 +216,13 @@ module uart_master_byte_sender (
             end
 
             ST_RD_SETUP: begin
-                uart_raddr <= 3'd5;
-                state      <= ST_RD_PULSE;
+                uart_raddr <= REG_LSR;
+                state <= ST_RD_PULSE;
             end
 
             ST_RD_PULSE: begin
                 uart_rd_en <= 1'b1;
-                state      <= ST_RD_WAIT;
+                state <= ST_RD_WAIT;
             end
 
             ST_RD_WAIT: begin
@@ -270,7 +230,11 @@ module uart_master_byte_sender (
             end
 
             ST_RD_CHECK: begin
-                if (uart_rdata[6] && tx_valid) begin
+                if (tx_valid && (uart_rdata[6] || !uart_tx_ready_n)) begin
+                    byte_latch <= tx_data;
+                    uart_waddr <= REG_RBR_THR;
+                    uart_wdata <= tx_data;
+                    tx_accept <= 1'b1;
                     state <= ST_LOAD_BYTE;
                 end else if (tx_valid) begin
                     state <= ST_RD_SETUP;
@@ -280,21 +244,22 @@ module uart_master_byte_sender (
             end
 
             ST_LOAD_BYTE: begin
-                byte_latch <= tx_data;
-                uart_waddr <= 3'd0;
-                uart_wdata <= tx_data;
-                tx_accept  <= 1'b1;
-                state      <= ST_WRITE_BYTE;
+                uart_waddr <= REG_RBR_THR;
+                uart_wdata <= byte_latch;
+                state <= ST_WRITE_BYTE;
             end
 
             ST_WRITE_BYTE: begin
-                uart_wdata <= byte_latch;
                 uart_wr_en <= 1'b1;
-                state      <= ST_IDLE;
+                state <= ST_WRITE_GAP;
+            end
+
+            ST_WRITE_GAP: begin
+                state <= ST_IDLE;
             end
 
             default: begin
-                state <= ST_INIT_LOAD;
+                state <= ST_INIT_WRITE;
             end
             endcase
         end

@@ -1,7 +1,8 @@
 module adc_scanner #(
     parameter CLK_FREQ_HZ       = 50000000,
     parameter FRAME_RATE_HZ     = 200,
-    parameter SCLK_HALF_PERIOD  = 5
+    parameter SCLK_HALF_PERIOD  = 5,
+    parameter RANGE_2X          = 1'b0
 )(
     input  wire        clk,
     input  wire        rst_n,
@@ -12,7 +13,9 @@ module adc_scanner #(
     output reg  [3:0]  sample_channel,
     output reg  [11:0] sample_data,
     output reg         sample_valid,
-    output reg         sweep_done
+    output reg         sweep_done,
+    output reg  [15:0] last_rx_word,
+    output reg  [15:0] channel_seen
 );
 
     localparam FRAME_PERIOD_CLKS = CLK_FREQ_HZ / FRAME_RATE_HZ;
@@ -25,7 +28,7 @@ module adc_scanner #(
     reg [31:0] frame_cnt;
     reg [3:0]  request_ch;
     reg [4:0]  valid_count;
-    reg        warmup_done;
+    reg [1:0]  warmup_count;
     reg        spi_start;
     reg [15:0] spi_tx_word;
 
@@ -36,7 +39,7 @@ module adc_scanner #(
     function [15:0] manual_command;
         input [3:0] channel;
         begin
-            manual_command = {4'b0001, 1'b1, channel, 1'b0, 1'b0, 5'b00000};
+            manual_command = {4'b0001, 1'b1, channel, RANGE_2X, 1'b0, 5'b00000};
         end
     endfunction
 
@@ -62,13 +65,15 @@ module adc_scanner #(
             frame_cnt      <= 32'd0;
             request_ch     <= 4'd0;
             valid_count    <= 5'd0;
-            warmup_done    <= 1'b0;
+            warmup_count    <= 2'd0;
             spi_start      <= 1'b0;
             spi_tx_word    <= 16'd0;
             sample_channel <= 4'd0;
             sample_data    <= 12'd0;
             sample_valid   <= 1'b0;
             sweep_done     <= 1'b0;
+            last_rx_word   <= 16'd0;
+            channel_seen   <= 16'd0;
         end else begin
             spi_start    <= 1'b0;
             sample_valid <= 1'b0;
@@ -78,10 +83,12 @@ module adc_scanner #(
             ST_WAIT: begin
                 request_ch  <= 4'd0;
                 valid_count <= 5'd0;
-                warmup_done <= 1'b0;
+                warmup_count <= 2'd0;
 
                 if (frame_cnt >= FRAME_PERIOD_CLKS - 1) begin
                     frame_cnt <= 32'd0;
+                    last_rx_word <= 16'd0;
+                    channel_seen <= 16'd0;
                     state     <= ST_START;
                 end else begin
                     frame_cnt <= frame_cnt + 1'b1;
@@ -98,24 +105,27 @@ module adc_scanner #(
 
             ST_BUSY: begin
                 if (spi_done) begin
-                    if (warmup_done) begin
+                    last_rx_word <= spi_rx_word;
+
+                    if (warmup_count == 2'd2) begin
                         sample_channel <= spi_rx_word[15:12];
                         sample_data    <= spi_rx_word[11:0];
                         sample_valid   <= 1'b1;
+                        channel_seen[spi_rx_word[15:12]] <= 1'b1;
 
                         if (valid_count == 5'd15) begin
                             sweep_done  <= 1'b1;
                             state       <= ST_WAIT;
                             request_ch  <= 4'd0;
                             valid_count <= 5'd0;
-                            warmup_done <= 1'b0;
+                            warmup_count <= 2'd0;
                         end else begin
                             valid_count <= valid_count + 1'b1;
                             request_ch  <= request_ch + 1'b1;
                             state       <= ST_START;
                         end
                     end else begin
-                        warmup_done <= 1'b1;
+                        warmup_count <= warmup_count + 1'b1;
                         request_ch  <= request_ch + 1'b1;
                         state       <= ST_START;
                     end

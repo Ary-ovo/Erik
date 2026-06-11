@@ -2,10 +2,10 @@
  {
   "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/gowin_rpll/gowin_rpll.v",
   "InstLine" : 10,
-  "InstName" : "CLK_50M_RPLL",
+  "InstName" : "Gowin_rPLL",
   "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/gowin_rpll/gowin_rpll.v",
   "ModuleLine" : 10,
-  "ModuleName" : "CLK_50M_RPLL"
+  "ModuleName" : "Gowin_rPLL"
  },
  {
   "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
@@ -17,7 +17,7 @@
   "SubInsts" : [
    {
     "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 104,
+    "InstLine" : 109,
     "InstName" : "u_uart_master",
     "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/uart_master/uart_master.v",
     "ModuleLine" : 9,
@@ -25,15 +25,7 @@
    },
    {
     "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 22,
-    "InstName" : "u_internal_clock_50m",
-    "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "ModuleLine" : 147,
-    "ModuleName" : "internal_clock_50m"
-   },
-   {
-    "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 48,
+    "InstLine" : 46,
     "InstName" : "u_adc_scanner",
     "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/adc_scanner.v",
     "ModuleLine" : 1,
@@ -41,7 +33,7 @@
     "SubInsts" : [
      {
       "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/adc_scanner.v",
-      "InstLine" : 45,
+      "InstLine" : 48,
       "InstName" : "u_ads7953_spi",
       "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/spi.v",
       "ModuleLine" : 1,
@@ -51,7 +43,7 @@
    },
    {
     "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 65,
+    "InstLine" : 67,
     "InstName" : "u_rt_algorithm",
     "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/rt_algorithm.v",
     "ModuleLine" : 1,
@@ -59,15 +51,15 @@
    },
    {
     "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 90,
+    "InstLine" : 94,
     "InstName" : "u_uart_sender",
     "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "ModuleLine" : 198,
+    "ModuleLine" : 152,
     "ModuleName" : "uart_master_byte_sender"
    },
    {
     "InstFile" : "E:/Display_on_desktop/Now_project/Erik/src/top_module.v",
-    "InstLine" : 132,
+    "InstLine" : 137,
     "InstName" : "u_led_stream",
     "ModuleFile" : "E:/Display_on_desktop/Now_project/Erik/src/led_stream.v",
     "ModuleLine" : 1,

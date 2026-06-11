@@ -1,9 +1,9 @@
--d E:\workspace\FPGA\Erik\impl\gwsynthesis\Erik.vg
+-d E:\Display_on_desktop\Now_project\Erik\impl\gwsynthesis\Erik.vg
 -p GW1NR-9C-QFN88P-6
 -pn GW1NR-LV9QN88PC6/I5
--cst E:\workspace\FPGA\Erik\src\1.cst
--cfg E:\workspace\FPGA\Erik\impl\pnr\device.cfg
--sdc E:\workspace\FPGA\Erik\src\1.sdc
+-cst E:\Display_on_desktop\Now_project\Erik\src\1.cst
+-cfg E:\Display_on_desktop\Now_project\Erik\impl\pnr\device.cfg
+-sdc E:\Display_on_desktop\Now_project\Erik\src\1.sdc
 -bit
 -tr
 -ph
